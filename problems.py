@@ -24,6 +24,8 @@ def input_parametrs(a):
 
 
 # тракетория падения тела при силах сопротивления в однородном поле g=1
+# пользователь задает начальную скорост, угол и коэффициенты сопротивления
+# результатом является траектория тела
 def ballista():
     print('Построение траектории при даижении тела в однородном поле тяжести при действии сил сопротивления')
     v0 = input_parametrs('Введите начальную скорость: ')
@@ -32,10 +34,9 @@ def ballista():
     k2 = input_parametrs('Введите коэффициент сопротивления для силы лобового сопротивления: ')
     y = [0.0]
     x = [0.0]
-    dt = 0.01
     t = [0.0]
-    vx = [v0 * math.cos(alfa)]
-    vy = [v0 * math.sin(alfa)]
+    dt = 0.01
+    vx, vy  = [v0 * math.cos(alfa)], [v0 * math.sin(alfa)]
     while True:
         x.append(x[-1] + vx[-1] * dt)
         y.append(y[-1] + vy[-1] * dt)
@@ -63,10 +64,3 @@ def kepler():
         y.append(y[-1] + dt * 0.5 * vy)
 
     return x, y
-
-    # vx:=vx-(x*dt/(r*sqr(r)))*(1+f/sqr(r));
-    #           vy:=vy-(y*dt/(r*sqr(r)))*(1+f/sqr(r));
-    #           x:=x+vx*dt; y:=y+vy*dt;
-    #           r:=sqrt(sqr(x)+sqr(y));
-    #           v:=sqrt(sqr(vx)+sqr(vy));
-# Тутуттутут
